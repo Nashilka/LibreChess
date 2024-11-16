@@ -1,32 +1,32 @@
 # SimpleChess
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chessboard Integration</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playable Chessboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/@chriso/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/@chriso/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #board {
+            width: 400px;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>Chess Game Viewer</h1>
-    <div id="board" style="width: 400px"></div>
-    <button onclick="loadGame()">Load Game</button>
-
+    <h1>Playable Chess</h1>
+    <div id="board"></div>
     <script>
-        const board = Chessboard('board', {
+        const board = ChessBoard('#board', {
             draggable: true,
             dropOffBoard: 'trash',
             sparePieces: true
         });
-
-        function loadGame() {
-            // Example PGN of a game
-            const pgn = '[Event "F/S Return Match"] [Site "Belgrade, Serbia JUG"] [Date "1992.11.04"] [White "Fischer, Robert J."] [Black "Spassky, Boris V."] [Result "1/2-1/2"]';
-            const chess = new Chess();
-            chess.load_pgn(pgn);
-            board.position(chess.fen());
-        }
     </script>
 </body>
 </html>
