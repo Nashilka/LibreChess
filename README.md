@@ -1,1 +1,1 @@
-# LibreChess
+# SimpleChess
